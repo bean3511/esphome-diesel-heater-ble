@@ -58,7 +58,7 @@ class HeaterControllerAA55E : public HeaterController {
 
   std::vector<Request> gen_level_down_command(HeaterState state) override {
     auto requests = get_manual_mode_command(state);
-    if (state.setlevel > 1) {
+    if (state.setlevel > 0) {
       requests.push_back(Request(0x04, state.setlevel - 1, 0x00));
     }
     return requests;
